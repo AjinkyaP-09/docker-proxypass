@@ -101,6 +101,7 @@ Then in the server block:
 location / {
     proxy_pass http://webserver;
 }
+```
 ---
 ## ✅ Summary
 
