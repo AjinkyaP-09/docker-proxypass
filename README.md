@@ -1,4 +1,4 @@
-# Handle traffic using Docker Containers
+# Handle Traffic Using Docker Containers
 
 In this project I have used a Docker container to handle the traffic on a server. To showcase this load balancing project I have used 3 Docker containers and configured one of them to handle the traffic whereas other 2 as the website.
 I have deliberately kept the content of website on both of the containers different to understand and see the working of proxy_pass.
@@ -38,7 +38,7 @@ NETWORK ID     NAME       DRIVER    SCOPE
 - Add each of them to the network: ```docker network network_name container_name```.
 
 ## Step 4: 
-- Enter in container 1 and 2 respectively to enter our webpage content.
+- Enter container 1 and 2 respectively to add custom webpage content.
 - Use command ```docker exec -it container1 /bin/bash``` to enter ```container1```.
 - Update apt: ```apt update```
 - Install nano to easily put the content: ```apt install nano -y```
@@ -77,14 +77,14 @@ upstream webserver {
 ![image](https://github.com/user-attachments/assets/61884640-4af0-4909-9413-1613aac05264)
 ---
 
-# We have used upstrean lets see what it is?
+# We have used upstream lets see what it is?
 ## What is the `upstream` block in Nginx?
 
 In Nginx, the `upstream` block defines a group of backend servers that can handle client requests. It’s commonly used in load balancing setups.
 
 In this project:
 
-```nginx
+```
 upstream webserver {
     server container1:80;
     server container2:80;
@@ -101,7 +101,11 @@ Then in the server block:
 location / {
     proxy_pass http://webserver;
 }
-```
-This line proxies incoming requests to the webserver group (i.e., container1 or container2).
+---
+## ✅ Summary
 
-In this way we can use Docker container as load balancer to handle traffic on multiple containers of the website.
+This project demonstrates how to use Docker containers and Nginx to load balance traffic across multiple web servers. With simple containerized architecture, we achieve:
+- Traffic routing via reverse proxy
+- Basic round-robin load balancing
+- Lightweight deployment using official Nginx images
+
