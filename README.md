@@ -36,7 +36,7 @@ NETWORK ID     NAME       DRIVER    SCOPE
 71a18021e502   forproxy   bridge    local
 ```
 - Add each of them to the network: ```docker network connect network_name container_name```.
-- Ex. ```docker network connect forproxy cont1```.
+- Ex. ```docker network connect forproxy container1```.
 
 ## Step 4: 
 - Enter container 1 and 2 respectively to add custom webpage content.
