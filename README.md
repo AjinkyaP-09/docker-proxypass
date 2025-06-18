@@ -35,7 +35,8 @@ nginx        latest    1e5f3c5b981a   2 months ago   192MB
 NETWORK ID     NAME       DRIVER    SCOPE
 71a18021e502   forproxy   bridge    local
 ```
-- Add each of them to the network: ```docker network network_name container_name```.
+- Add each of them to the network: ```docker network connect network_name container_name```.
+- Ex. ```docker network connect forproxy cont1```.
 
 ## Step 4: 
 - Enter container 1 and 2 respectively to add custom webpage content.
